@@ -2,12 +2,15 @@
 // ===============
 'use strict';
 
+var Sequelize = require('sequelize');
+
 // EXPORT THIS MODULE TO INDEX.JS
 module.exports = function(sequelize, DataTypes) {
-  var Burger = sequelize.define('Burger', {
+  var burger = sequelize.define('burger', {
     burger_name: DataTypes.STRING,
-    devoured: {type: DataTypes.INTEGER, defaultValue: 0}, // Default = false = not devoured
-    date: {type: DataTypes.DATE, defaultValue: sequelize.NOW}
+    devoured: {type: DataTypes.BOOLEAN, defaultValue: false}, // Order not picked
+    createdAt: {type: DataTypes.DATE, defaultValue: sequelize.NOW},
+    updatedAt: {type: DataTypes.DATE, defaultValue: sequelize.NOW},
   }, {
     classMethods: {
       associate: function(models) {
@@ -15,5 +18,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Burger;
+  return burger;
 };

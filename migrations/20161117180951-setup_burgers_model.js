@@ -3,7 +3,7 @@
 module.exports = {
   // set up Burgers Model
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Burgers', {
+    return queryInterface.createTable('burgers', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -30,6 +30,6 @@ module.exports = {
   },
   // remove Burger Model
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Burgers');
+    return queryInterface.dropTable('burgers');
   }
 };
